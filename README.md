@@ -52,7 +52,7 @@ A sleek and modern weather application built using **Kotlin** and **Jetpack Comp
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/weather-app.git
+   git clone https://github.com/dipeshmhrzn/weather-app.git
 
 2. Open the project in Android Studio.
 3. Create a file called **local.properties** in the project root directory if it doesn't already exist, and add your OpenWeather API key:
