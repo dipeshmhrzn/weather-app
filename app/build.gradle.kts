@@ -5,12 +5,13 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.0.21"
-
+    id("com.google.dagger.hilt.android") version "2.57.1"
+    id("com.google.devtools.ksp")
 }
 
 val props = Properties().apply {
     val propsFile = rootProject.file("local.properties")
-    if(propsFile.exists()) load(propsFile.inputStream())
+    if (propsFile.exists()) load(propsFile.inputStream())
 }
 
 android {
@@ -57,18 +58,17 @@ android {
 
 dependencies {
 
-    val nav_version = "2.9.3"
 
-    implementation("androidx.navigation:navigation-compose:$nav_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
 
-    implementation("io.ktor:ktor-client-core:3.2.1")
-    implementation("io.ktor:ktor-client-cio:3.2.1")
-    implementation("io.ktor:ktor-client-content-negotiation:3.2.1")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:3.2.1")
-    implementation("io.ktor:ktor-client-logging:3.2.1")
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.logging)
 
-    implementation("com.airbnb.android:lottie-compose:6.1.0")
+    implementation(libs.lottie.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -85,4 +85,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    //hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+
 }

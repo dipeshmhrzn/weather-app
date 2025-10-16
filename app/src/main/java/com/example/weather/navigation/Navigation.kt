@@ -3,6 +3,7 @@ package com.example.weather.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -24,17 +25,8 @@ fun Navigation(
 ) {
     val navController = rememberNavController()
 
-    val apiService = remember { WeatherApiServices() }
-
-    val weatherRepository = remember { WeatherRepositoryImpl(apiService) }
-    val weatherUseCase = remember { WeatherUseCase(weatherRepository) }
-    val weatherViewModel = remember { WeatherViewModel(weatherUseCase) }
-
-    val forecastRepository = remember { ForecastRepositoryImpl(apiService) }
-    val forecastUseCase = remember { ForecastUseCase(forecastRepository) }
-    val forecastViewModel = remember { ForecastViewModel(forecastUseCase) }
-
-
+    val weatherViewModel: WeatherViewModel = viewModel()
+    val forecastViewModel: ForecastViewModel = viewModel()
 
     NavHost(navController = navController, startDestination = Routes.WeatherHome) {
 

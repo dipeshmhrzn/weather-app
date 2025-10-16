@@ -11,7 +11,9 @@ import androidx.compose.runtime.setValue
 import com.example.weather.navigation.Navigation
 import com.example.weather.presentation.home.WeatherHome
 import com.example.weather.ui.theme.WeatherTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

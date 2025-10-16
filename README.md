@@ -47,6 +47,31 @@ A sleek and modern weather application built using **Kotlin** and **Jetpack Comp
 - **Kotlin** support (already included in Android Studio).
 - **OpenWeather API Key** (you can get one by registering on the [OpenWeather website](https://openweathermap.org/api)).
 
+### App Demo GIF
+<p align="center">
+  <img src="images/Weather-app-demo.gif" alt="App Demo" width="600">
+</p>
+
+### App Screenshots
+<table>
+  <tr>
+    <td><img src="images/screen1-light.jpg" alt="Screen" width="400"/></td>
+    <td><img src="images/screen1-dark.jpg" alt="Screen" width="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/screen2-dark.jpg" alt="Screen" width="400"/></td>
+    <td><img src="images/screen2-light.jpg" alt="Screen" width="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/screen3-light.jpg" alt="Screen" width="400"/></td>
+    <td><img src="images/screen3-dark.jpg" alt="Screen" width="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/screen4-dark.jpg" alt="Screen" width="400"/></td>
+    <td><img src="images/screen4-light.jpg" alt="Screen" width="400"/></td>
+  </tr>
+</table>
+
 ### Setup Steps
 
 1. Clone this repository:

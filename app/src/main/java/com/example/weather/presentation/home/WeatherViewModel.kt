@@ -9,9 +9,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.weather.data.remote.weatherdto.WeatherDto
 import com.example.weather.domain.usecase.WeatherUseCase
 import com.example.weather.utils.Result
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class WeatherViewModel(
+@HiltViewModel
+class WeatherViewModel @Inject constructor(
     private val weatherUseCase: WeatherUseCase
 ) : ViewModel() {
 
