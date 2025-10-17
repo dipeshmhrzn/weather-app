@@ -30,20 +30,21 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.weather.R
 import com.example.weather.presentation.components.animations.AnimatedClouds
+import com.example.weather.presentation.components.animations.LottieAnimation
 import com.example.weather.presentation.components.weather.PrimaryStats
 import com.example.weather.presentation.components.weather.SearchInput
 import com.example.weather.presentation.components.weather.SecondaryStats
 import com.example.weather.presentation.components.weather.TopAppBar
 import com.example.weather.utils.Result
-import com.example.weather.R
-import com.example.weather.presentation.components.animations.LottieAnimation
 
 @Composable
 fun WeatherHome(
     navHostController: NavHostController,
-    viewModel: WeatherViewModel,
+    viewModel: WeatherViewModel = hiltViewModel(),
     darkModeEnabled: Boolean,
     onToggleDarkMode: () -> Unit
 ) {

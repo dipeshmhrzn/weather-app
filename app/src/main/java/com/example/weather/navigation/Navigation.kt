@@ -25,15 +25,11 @@ fun Navigation(
 ) {
     val navController = rememberNavController()
 
-    val weatherViewModel: WeatherViewModel = viewModel()
-    val forecastViewModel: ForecastViewModel = viewModel()
-
     NavHost(navController = navController, startDestination = Routes.WeatherHome) {
 
         composable<Routes.WeatherHome> {
             WeatherHome(
                 navHostController = navController,
-                viewModel = weatherViewModel,
                 darkModeEnabled = darkModeEnabled,
                 onToggleDarkMode = onToggleDarkMode
             )
@@ -44,7 +40,6 @@ fun Navigation(
             ForecastWeather(
                 city= forecastScreen.city,
                 country = forecastScreen.countryCode,
-                viewModel = forecastViewModel
             )
         }
 

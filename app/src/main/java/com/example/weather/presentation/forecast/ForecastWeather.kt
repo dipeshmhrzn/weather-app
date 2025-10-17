@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.weather.presentation.components.forecast.ForecastList
 import com.example.weather.utils.Result
 
@@ -26,7 +28,7 @@ import com.example.weather.utils.Result
 fun ForecastWeather(
     city: String,
     country: String,
-    viewModel: ForecastViewModel
+    viewModel: ForecastViewModel = hiltViewModel()
 ) {
 
     val forecastState = viewModel.forecastState
@@ -59,14 +61,16 @@ fun ForecastWeather(
                 )
             )
         }
-    ) {innerPadding->
+    ) { innerPadding ->
         Column(
-            modifier = Modifier.padding(innerPadding).fillMaxSize(),
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            when(forecastState){
-                is Result.Loading->{
+            when (forecastState) {
+                is Result.Loading -> {
                     Box(
                         modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
                     ) {
@@ -76,19 +80,20 @@ fun ForecastWeather(
                     }
                 }
 
-                is Result.Success->{
+                is Result.Success -> {
 
                     val dailyForecast = forecastState.data.list
                         .filter { it.dt_txt.contains("12:00:00") }
                         .take(5)
 
-                    Log.d("ForcastList","$dailyForecast")
+                    Log.d("ForcastList", "$dailyForecast")
                     ForecastList(forecast = dailyForecast)
                 }
 
-                is Result.Error->{
+                is Result.Error -> {
                     Text("Error: ${forecastState.message}")
                 }
+
                 else -> {
 
                 }
